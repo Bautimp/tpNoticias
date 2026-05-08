@@ -226,7 +226,7 @@ class Noticias extends BaseController{
         }
     }
     //Cambia el estado de una noticia
-    public function cambiarEstado($id){
+    public function cambiarEstado(int $id){
 
         $accion = $this->request->getPost('accion');
 
@@ -364,7 +364,7 @@ class Noticias extends BaseController{
         return view('noticias/listaValidador', $data);
     }
     //Muestra el detalle de una noticia
-    public function detalle($id){
+    public function detalle(int $id){
         $model = new NoticiaModel();
         // Busca la noticia  y nombre del autor
         $noticia = $model
@@ -381,7 +381,7 @@ class Noticias extends BaseController{
         return view('Noticias/detalle', ['noticia' => $noticia]);
     }
     //Muestra el formulario de edición de una noticia
-    public function editar($id){
+    public function editar(int $id){
         $model = new NoticiaModel();
         $noticia = $model->find($id);
         //No permite editar noticias en estado publicadas o expiradas
@@ -393,7 +393,7 @@ class Noticias extends BaseController{
         return view('Noticias/editar', ['noticia' => $noticia]);
     }
     //Muestra el historial de cambios de una noticia 
-    public function historial($id){
+    public function historial(int $id){
         //Verifica que el usuario este logueado y tenga rol válido
         if (!session()->get('logueado') || (!session()->get('rol_editor') && !session()->get('rol_validador'))) {
             return redirect()->to('/login');

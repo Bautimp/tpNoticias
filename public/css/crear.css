@@ -1,4 +1,4 @@
-/*Conteiner de Crear*/
+/*Conteiner de Crear y Editar*/
 .crear-container {
     display: flex;
     justify-content: center;
@@ -28,7 +28,8 @@ label {
     font-weight: 500;
     color: #444;
 }
-/* INPUTS */
+
+/* Inputs */
 .input {
     width: 100%;
     padding: 12px;
@@ -61,7 +62,7 @@ textarea.input {
     margin-bottom: 10px;
 }
 
-/* UPLOAD */
+/* Imagen */
 .bloque-imagen {
     margin-bottom: 20px;
 }
@@ -88,7 +89,7 @@ textarea.input {
     background: #eef4ff;
 }
 
-/* Preview ya lo tenías, pero lo dejamos prolijo */
+
 #previewImagen {
     margin-top: 15px;
     max-width: 100%;
@@ -104,7 +105,7 @@ textarea.input {
 
 
 
-/* BOTONES */
+/* Botones */
 .acciones {
     display: flex;
     justify-content: space-between;
@@ -126,7 +127,7 @@ textarea.input {
 .volver:hover {
     color: #000;
 }
-/*Botones*/
+
 .btn {
     padding: 10px 16px;
     border: none;
@@ -150,8 +151,7 @@ textarea.input {
 .btn-anular { background: #ef4444; }
 .btn-anular:hover { background: #dc2626; }
 
-/*MODAL DE GUARDAR CAMBIOS*/
-/* Fondo oscuro */
+/*Modal guardar cambios*/
 .modal {
   display: none;
   position: fixed;
@@ -165,7 +165,7 @@ textarea.input {
   z-index: 1000;
 }
 
-/* Caja del modal */
+
 .modal-content {
   background: #ffffff;
   padding: 30px;
@@ -176,19 +176,19 @@ textarea.input {
   animation: aparecer 0.25s ease;
 }
 
-/* Título */
+
 .modal-content h2 {
   margin-bottom: 10px;
   font-size: 20px;
 }
 
-/* Texto */
+
 .modal-content p {
   margin-bottom: 20px;
   color: #666;
 }
 
-/* Botón */
+
 .btn-cerrar {
   background-color: #6c7ae0;
   color: white;
@@ -214,6 +214,7 @@ textarea.input {
   }
 }
 
+/* Estados */
 .estado-contenedor {
     margin-bottom: 15px;
 }
@@ -235,6 +236,7 @@ textarea.input {
     margin-top: 10px;
 }
 
+/* Mensaje */
 .toast-success {
     position: fixed;
     top: 20px;
@@ -244,10 +246,11 @@ textarea.input {
     padding: 12px 18px;
     border-radius: 10px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    z-index: 9999; /* más alto que el modal */
+    z-index: 9999; 
     animation: slideIn 0.3s ease;
 }
 
+/* Animación */
 @keyframes slideIn {
     from {
         opacity: 0;

@@ -1,6 +1,7 @@
 <?= $this->extend('Noticias/layout') ?>
 
 <?= $this->section('contenido') ?>
+<?php /** @var array $noticias */ ?>
 
 <div class="main-content">
 <h1 class="titulo-seccion">Mis Noticias</h1>

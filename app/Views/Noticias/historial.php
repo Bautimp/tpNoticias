@@ -1,12 +1,12 @@
 <?= $this->extend('Noticias/layout') ?>
 <?= $this->section('contenido') ?>
-
+<?php /** @var array $historial */ ?>
 <div class="main-content">
 <h2 class="titulo-seccion">Historial de la Noticia</h2>
 
 
 <?php
-function colorEstado($estado) {
+function colorEstado(string $estado) {
     return match($estado) {
         'Creada' => '#6c757d',
         'Borrador' => '#f0ad4e',          
@@ -19,7 +19,7 @@ function colorEstado($estado) {
 }
 ?>
 <?php
-function iconoEstado($estado) {
+function iconoEstado(string $estado) {
     return match($estado) {
         'Creada' => '<img src="' . base_url('img/creada.png') . '" width="12">',
         'Borrador' => '<img src="' . base_url('img/borrador.png') . '" width="12">',

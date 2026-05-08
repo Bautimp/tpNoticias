@@ -1,4 +1,4 @@
-/* CONTENEDOR PRINCIPAL */
+/* Conteiner de Detalle */
 .detalle-container {
     display: flex;
     justify-content: center;
@@ -7,14 +7,14 @@
 
 .detalle-card {
     width: 800px;
-    background: #f5f0ff; /* violeta suave */
+    background: #f5f0ff; 
     border-radius: 18px;
     padding: 25px;
     box-shadow: 0 8px 20px rgba(123, 44, 191, 0.15);
     backdrop-filter: blur(6px);
 }
 
-/* HEADER */
+/* Header */
 .detalle-header {
     display: flex;
     justify-content: space-between;
@@ -26,7 +26,7 @@
     margin: 0;
 }
 
-/* BOTON HISTORIAL */
+/* Boton historial */
 .btn-historial {
     background: #7b2cbf;
     color: white;
@@ -35,14 +35,14 @@
     text-decoration: none;
     font-size: 14px;
     transition: 0.2s;
-    white-space: nowrap; /* evita que baje de línea */
+    white-space: nowrap; 
 }
 
 .btn-historial:hover {
     background: #5a189a;
 }
 
-/* ESTADO */
+/* Estado */
 .detalle-estado {
     margin-top: 10px;
 }
@@ -55,7 +55,7 @@
     display: inline-block;
 }
 
-/* INFO */
+/* Información */
 .detalle-info {
     margin-top: 15px;
     padding-top: 12px;
@@ -66,7 +66,7 @@
     gap: 20px;
 }
 
-/* IMAGEN */
+/* Imagen */
 .detalle-img {
     margin-top: 20px;
     background: white;
@@ -87,7 +87,7 @@
     color: #999;
 }
 
-/* DESCRIPCION */
+/* Descripción */
 .detalle-descripcion {
     margin-top: 20px;
     font-size: 15px;

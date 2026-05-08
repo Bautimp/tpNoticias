@@ -2,6 +2,8 @@
 
 <?= $this->section('contenido') ?>
 
+<?php /** @var array $noticia */ ?>
+
 <div class="crear-container">
 
     <div class="crear-card">
@@ -34,34 +36,40 @@
             <label><b>Descripción:</b></label><br>
             <textarea name="descripcion" class="input"><?= $noticia['descripcion'] ?></textarea>
 
-            <label><b>Imagen</b></label><br>
+           <label><b>Imagen</b></label>
+
             <div class="bloque-imagen">
 
-                <?php if (!empty($noticia['imagen'])): ?>
-                    <div class="preview-container">
+                <div id="drop-area">
+                    <p>Arrastrá una imagen acá o hacé click</p>
+
+                    <input type="file"
+                        id="imagen"
+                        name="imagen"
+                        accept="image/*"
+                        hidden>
+                </div>
+
+                <div class="preview-container">
+
+                    <?php if (!empty($noticia['imagen'])): ?>
+
                         <img id="previewImagen"
                             src="<?= base_url('uploads/' . $noticia['imagen']) ?>">
-                    </div>
-                <?php else: ?>
-                    <div class="preview-container">
+
+                    <?php else: ?>
+
                         <img id="previewImagen" style="display:none;">
-                    </div>
-                <?php endif; ?>
 
-                <div style="margin-top:10px;">
-
-                    <label for="inputImagen" class="btn btn-validar">
-                        Cambiar imagen
-                    </label>
-
-                    <label class="checkbox-editar">
-                        <input type="checkbox" name="quitar_imagen">
-                        Quitar imagen
-                    </label>
+                    <?php endif; ?>
 
                 </div>
 
-                <input type="file" id="inputImagen" name="imagen" hidden>
+                <label class="checkbox-editar">
+                    <input type="checkbox" name="quitar_imagen">
+                    Quitar imagen
+                </label>
+
             </div>
            
             <div class="acciones">
@@ -92,59 +100,5 @@
     </div>
 
 </div>
-<script>
-document.addEventListener('DOMContentLoaded', function() {    
-// 🔹 Preview cuando selecciona imagen
-document.getElementById('inputImagen').addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    const preview = document.getElementById('previewImagen');
-
-    // si no existe el img (caso sin imagen previa), lo creamos
-    if (!preview) {
-        const img = document.createElement('img');
-        img.id = 'previewImagen';
-        img.style.maxWidth = '100%';
-        img.style.marginTop = '10px';
-        document.querySelector('.preview-container')?.appendChild(img);
-    }
-
-    // actualizar preview
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        document.getElementById('previewImagen').src = e.target.result;
-        document.getElementById('previewImagen').style.display = 'block';
-    }
-    reader.readAsDataURL(file);
-
-    // desmarcar "quitar imagen"
-    const check = document.querySelector('input[name="quitar_imagen"]');
-    if (check) check.checked = false;
-});
-
-
-// 🔹 Si marca "quitar imagen"
-const checkEliminar = document.querySelector('input[name="quitar_imagen"]');
-
-if (checkEliminar) {
-    checkEliminar.addEventListener('change', function(e) {
-
-        const preview = document.getElementById('previewImagen');
-
-        if (e.target.checked) {
-            if (preview) preview.style.opacity = "0.3";
-
-            // limpiar input file
-            document.getElementById('inputImagen').value = '';
-        } else {
-            if (preview) preview.style.opacity = "1";
-        }
-
-    });
-}
-});
-</script>
-
 
 <?= $this->endSection() ?>

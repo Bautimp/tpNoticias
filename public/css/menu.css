@@ -1,4 +1,4 @@
-/* SIDEBAR */
+/* Menu lateral */
 .sidebar {
     position: fixed;
     z-index: 1000;
@@ -13,12 +13,12 @@
     box-shadow: 2px 0 12px rgba(0,0,0,0.2);
 }
 
-/* ACTIVO (cuando se abre) */
+/* Activo */
 .sidebar.active {
     left: 0;
 }
 
-/* TITULO */
+/* Titulo */
 .sidebar h2 {
     margin-bottom: 20px;
     font-size: 20px;
@@ -26,7 +26,7 @@
     padding-bottom: 10px;;
 }
 
-/* LINKS */
+/* Links */
 .sidebar a {
     display: block;
     color: white;
@@ -37,12 +37,12 @@
     transition: 0.2s;
 }
 
-/* HOVER */
+/* Hover */
 .sidebar a:hover {
     background:  #9d4edd;;
 }
 
-/* OVERLAY (fondo oscuro) */
+/* Fondo oscuro cuando se abre el menu*/
 .overlay {
     display: none;
     position: fixed;
@@ -54,11 +54,11 @@
     z-index: 500;
 }
 
-/* ACTIVO */
+/* Activo */
 .overlay.active {
     display: block;
 }
-
+/* Icono*/
 .icono-menu {
     display: flex;
     align-items: center;
@@ -86,7 +86,7 @@
     text-decoration: none;
 }
 
-/* icono */
+
 .icono-menu img {
     width: 30px;
     height: 30px;

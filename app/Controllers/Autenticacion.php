@@ -313,7 +313,7 @@ class Autenticacion extends BaseController{
     }
 
     //Formulario de nueva contraseña
-    public function formReset($token){
+    public function formReset(string $token){
         //Muestra el formulario para ingresar la nueva contraseña
         $model = new UsuarioModel();
 

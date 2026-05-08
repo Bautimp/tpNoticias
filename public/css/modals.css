@@ -1,4 +1,4 @@
-/*Modal*/
+/*Modal de login, login sesion, registro*/
 .modal {
     display: none;
     position: fixed;
@@ -187,7 +187,7 @@
 
 .reset-container h2 {
     margin-bottom: 20px;
-    color: #a855f7; /* violeta */
+    color: #a855f7; 
 }
 
 .reset-container .form-input {

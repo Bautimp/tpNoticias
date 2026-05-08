@@ -53,6 +53,102 @@ setTimeout(() => {
     }
 }, 3000);
 
+//Scripts de Crear y Editar, la imagen
+document.addEventListener("DOMContentLoaded", function () {
+
+    const dropArea = document.getElementById("drop-area");
+    const input = document.getElementById("imagen");
+    const preview = document.getElementById("previewImagen");
+
+    // Si la página no tiene imagen, no ejecutar
+    if (!dropArea || !input || !preview) return;
+
+    // CLICK EN EL ÁREA
+    dropArea.addEventListener("click", () => input.click());
+
+    // SELECCIONAR ARCHIVO
+    input.addEventListener("change", (e) => {
+        mostrarImagen(e.target.files[0]);
+    });
+
+    // DRAG OVER
+    dropArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropArea.classList.add("activo");
+    });
+
+    // DRAG LEAVE
+    dropArea.addEventListener("dragleave", () => {
+        dropArea.classList.remove("activo");
+    });
+
+    // DROP
+    dropArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+
+        dropArea.classList.remove("activo");
+
+        const archivo = e.dataTransfer.files[0];
+
+        input.files = e.dataTransfer.files;
+
+        mostrarImagen(archivo);
+    });
+
+    // MOSTRAR PREVIEW
+    function mostrarImagen(file) {
+
+        if (!file || !file.type.startsWith("image/")) return;
+
+        // Máximo 2MB
+        if (file.size > 2 * 1024 * 1024) {
+            alert("La imagen es demasiado grande (máx 2MB)");
+            return;
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+
+            preview.src = e.target.result;
+
+            preview.style.display = "block";
+
+            preview.style.opacity = "1";
+
+            // desmarcar quitar imagen
+            const check = document.querySelector('input[name="quitar_imagen"]');
+
+            if (check) {
+                check.checked = false;
+            }
+        };
+
+        reader.readAsDataURL(file);
+    }
+
+    // CHECKBOX QUITAR IMAGEN
+    const checkEliminar = document.querySelector('input[name="quitar_imagen"]');
+
+    if (checkEliminar) {
+
+        checkEliminar.addEventListener("change", function (e) {
+
+            if (e.target.checked) {
+
+                preview.style.opacity = "0.3";
+
+                input.value = '';
+
+            } else {
+
+                preview.style.opacity = "1";
+            }
+        });
+    }
+
+});
+
 </script>
 <!--Modal de recuperar-->
 <script id="i4f1xr">

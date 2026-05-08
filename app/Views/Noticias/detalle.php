@@ -1,6 +1,6 @@
 <?= $this->extend('Noticias/layout') ?>
 <?= $this->section('contenido') ?>
-
+<?php /** @var array $noticia */ ?>
 <div class="detalle-container">
 
     <div class="detalle-card">

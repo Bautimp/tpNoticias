@@ -29,7 +29,7 @@
     </a>
 
 </div>
-<!-- Overlay -->
+<!-- Fondo oscuro cuando se abre el menu -->
 <div id="overlay" onclick="toggleMenu()" class="overlay"></div>
 
 <?php endif; ?>

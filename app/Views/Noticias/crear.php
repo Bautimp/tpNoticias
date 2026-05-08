@@ -98,56 +98,6 @@ document.getElementById("formNoticia").addEventListener("submit", function(e) {
   }
 });
 
-const dropArea = document.getElementById("drop-area");
-const input = document.getElementById("imagen");
-const preview = document.getElementById("previewImagen");
-
-
-dropArea.addEventListener("click", () => input.click());
-
-
-input.addEventListener("change", (e) => {
-  mostrarImagen(e.target.files[0]);
-});
-
-
-dropArea.addEventListener("dragover", (e) => {
-  e.preventDefault();
-  dropArea.classList.add("activo");
-});
-
-
-dropArea.addEventListener("dragleave", () => {
-  dropArea.classList.remove("activo");
-});
-
-dropArea.addEventListener("drop", (e) => {
-  e.preventDefault();
-  dropArea.classList.remove("activo");
-
-  const archivo = e.dataTransfer.files[0];
-  input.files = e.dataTransfer.files; 
-
-  mostrarImagen(archivo);
-});
-
-
-function mostrarImagen(file) {
-  if (!file || !file.type.startsWith("image/")) return;
-
-  if (file.size > 2 * 1024 * 1024) {
-    alert("La imagen es demasiado grande (máx 2MB)");
-    return;
-  }
-
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    preview.src = e.target.result;
-    preview.style.display = "block";
-  };
-  reader.readAsDataURL(file);
-}
-
-</script>    
+</script>
 
 <?= $this->endSection() ?>

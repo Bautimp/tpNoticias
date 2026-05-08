@@ -1,5 +1,7 @@
 <?= $this->extend('Noticias/layout') ?>
 <?= $this->section('contenido') ?>
+<?php /** @var string $token */ ?>
+
 <?php $errors = session()->get('errors'); ?>
 <div class="reset-container">
     <div class="modal-content">
