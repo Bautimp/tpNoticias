@@ -118,14 +118,23 @@ class Noticias extends BaseController{
         $titulo = trim($this->request->getPost('titulo'));
 
         //Evita duplicados de títulos en noticias publicadas
-        $existePublicada = $model->where('titulo', $titulo)
-                                ->where('estado', 'Publicada')
-                                ->first();
+        $existePublicada = $model
+            ->where('titulo', $titulo)
+            ->where('estado', 'Publicada');
 
-        if ($existePublicada && in_array($accion, ['validar'])) {
-            return redirect()->back()->withInput()->with('errors', [
-                'titulo' => 'Ya existe una noticia publicada con este título.'
-            ]);
+        if ($id) {
+            $existePublicada->where('id !=', $id);
+        }
+
+        $existePublicada = $existePublicada->first();
+
+        if ($existePublicada) {
+
+            return redirect()->back()
+                ->withInput()
+                ->with('errors', [
+                    'titulo' => 'Ya existe una noticia publicada con este título.'
+                ]);
         }
 
         //Define el estado según la acción
