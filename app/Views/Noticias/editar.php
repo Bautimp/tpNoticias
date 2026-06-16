@@ -27,7 +27,7 @@
                 <?= $noticia['estado'] ?>
             </span>
         </div>
-        <form method="post" action="/app_tp1/public/noticias/guardar/<?= $noticia['id'] ?>" enctype="multipart/form-data">
+        <form method="post" action="/noticias/guardar/<?= $noticia['id'] ?>" enctype="multipart/form-data">
 
             
             <label><b>Título:</b></label><br>
