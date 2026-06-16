@@ -8,7 +8,7 @@
        
         <h3 class="crear-titulo">Crear Noticia</h3>
         
-        <form id="formNoticia" method="post" action="/app_tp1/public/noticias/guardar" enctype="multipart/form-data">
+        <form id="formNoticia" method="post" action="/noticias/guardar" enctype="multipart/form-data">
 
             <label><b>Título:</b></label><br>
             <input type="text" id="titulo" name="titulo"

@@ -37,13 +37,8 @@ class NoticiaModelTest extends TestCase
         parent::tearDown();
     }
 
-    public function testValidadorNoPuedePublicarNoticiaConTituloDuplicado()
-    {
+    public function testValidadorNoPuedePublicarNoticiaConTituloDuplicado(){
         $model = new NoticiaModel();
-
-        // ==========================================================
-        // PREPARACIÓN (Arrange): Insertamos los datos directo con el Modelo
-        // ==========================================================
         
         // Creamos la noticia original ya Publicada
         $idNoticia1 = $model->insert([
@@ -64,10 +59,6 @@ class NoticiaModelTest extends TestCase
         // Verificamos que la preparación no haya fallado
         $this->assertIsNumeric($idNoticia1, 'Error: No se pudo crear la noticia 1');
         $this->assertIsNumeric($idNoticia2, 'Error: No se pudo crear la noticia 2');
-
-        // ==========================================================
-        // ACCIÓN (Act): Simulamos al Validador usando el Controlador
-        // ==========================================================
         
         // Configuramos la sesión para ser el Validador (ID 16)
         $this->session->set([
@@ -88,14 +79,10 @@ class NoticiaModelTest extends TestCase
         // El Validador intenta publicar la Segunda Noticia
         $_POST['accion'] = 'publicar';
         $controlador->cambiarEstado($idNoticia2);
-
-        // ==========================================================
-        // COMPROBACIÓN (Assert): Verificamos qué pasó en la BD
-        // ==========================================================
         
         $noticiaActualizada2 = $model->find($idNoticia2);
 
-        // 1. El estado NO debe ser 'Publicada'
+        // El estado NO debe ser 'Publicada'
         $this->assertNotEquals(
             'Publicada', 
             $noticiaActualizada2['estado'], 
@@ -107,10 +94,6 @@ class NoticiaModelTest extends TestCase
     public function testValidadorNoPuedePublicarNoticiaConTituloDuplicadoRetornaMismoEstado()
     {
         $model = new NoticiaModel();
-
-        // ==========================================================
-        // PREPARACIÓN (Arrange): Insertamos los datos directo con el Modelo
-        // ==========================================================
         
         // Creamos la noticia original ya Publicada
         $idNoticia1 = $model->insert([
@@ -131,10 +114,6 @@ class NoticiaModelTest extends TestCase
         // Verificamos que la preparación no haya fallado
         $this->assertIsNumeric($idNoticia1, 'Error: No se pudo crear la noticia 1');
         $this->assertIsNumeric($idNoticia2, 'Error: No se pudo crear la noticia 2');
-
-        // ==========================================================
-        // ACCIÓN (Act): Simulamos al Validador usando el Controlador
-        // ==========================================================
         
         // Configuramos la sesión para ser el Validador (ID 16)
         $this->session->set([
@@ -155,15 +134,11 @@ class NoticiaModelTest extends TestCase
         // El Validador intenta publicar la Segunda Noticia
         $_POST['accion'] = 'publicar';
         $controlador->cambiarEstado($idNoticia2);
-
-        // ==========================================================
-        // COMPROBACIÓN (Assert): Verificamos qué pasó en la BD
-        // ==========================================================
         
         $noticiaActualizada2 = $model->find($idNoticia2);
 
 
-        // 2. La noticia debe retener su estado original
+        // La noticia debe retener su estado original
         $this->assertEquals(
             'Lista para Validación', 
             $noticiaActualizada2['estado'],
